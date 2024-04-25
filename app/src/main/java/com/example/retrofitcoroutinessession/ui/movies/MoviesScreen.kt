@@ -66,7 +66,7 @@ fun MoviesScreenContent(state: MoviesUIState) {
                         Box(modifier = Modifier.fillMaxSize()) {
                             ImageNetwork(
                                 modifier = Modifier.fillMaxSize(),
-                                imageUrl = movie.posterPath
+                                imageUrl = "https://image.tmdb.org/t/p/w500${movie.posterPath}"
                             )
                             Text(
                                 text = movie.title,
