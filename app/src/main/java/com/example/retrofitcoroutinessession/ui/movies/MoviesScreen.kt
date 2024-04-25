@@ -1,6 +1,5 @@
 package com.example.retrofitcoroutinessession.ui.movies
 
-import androidx.activity.ComponentActivity
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,22 +17,18 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModelProvider
+import androidx.compose.ui.unit.sp
 import com.example.retrofitcoroutinessession.ui.composable.Error
 import com.example.retrofitcoroutinessession.ui.composable.ImageNetwork
 import com.example.retrofitcoroutinessession.ui.composable.Loading
 import com.example.retrofitcoroutinessession.ui.theme.Black100
-import kotlinx.coroutines.flow.collectLatest
 
 @Composable
 fun MoviesScreen(viewModel: MoviesViewModel) {
@@ -55,16 +50,17 @@ fun MoviesScreenContent(state: MoviesUIState) {
                 text = "Popular Movies",
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.primary,
+                fontSize = 26.sp,
                 modifier = Modifier.fillMaxWidth().padding(16.dp)
             )
             LazyVerticalGrid(
-                modifier = Modifier.fillMaxSize().padding(start = 20.dp, end = 20.dp,),
+                modifier = Modifier.fillMaxSize().padding(start = 16.dp, end = 16.dp,),
                 columns = GridCells.Fixed(2),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 items(state.movies) { movie ->
                     Card(
-                        modifier = Modifier.fillMaxWidth().height(160.dp),
+                        modifier = Modifier.fillMaxWidth().height(200.dp).padding(bottom = 8.dp),
                         shape = RoundedCornerShape(8.dp),
                     ) {
                         Box(modifier = Modifier.fillMaxSize()) {

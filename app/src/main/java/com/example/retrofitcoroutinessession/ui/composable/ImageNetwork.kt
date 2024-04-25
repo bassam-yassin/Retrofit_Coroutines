@@ -18,7 +18,6 @@ fun ImageNetwork(
     contentScale: ContentScale = ContentScale.Crop,
     colorFilter: ColorFilter? = null
 ) {
-
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
             .data(imageUrl)

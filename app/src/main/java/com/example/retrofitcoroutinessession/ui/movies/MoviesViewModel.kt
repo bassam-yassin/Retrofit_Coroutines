@@ -24,9 +24,9 @@ class MoviesViewModel : ViewModel() {
             _state.update { it.copy(isLoading = true, isError = false) }
             try {
                 val movies = service.getNowPlayingMovie()
-                _state.update { it.copy(movies = movies.results) }
+                _state.update { it.copy(movies = movies.results, isLoading = false) }
             } catch (e: Exception) {
-                _state.update { it.copy(isLoading = false) }
+                _state.update { it.copy(isLoading = false, isError = true) }
                 Log.d("getMovies: ", "${e.message}")
             }
         }
