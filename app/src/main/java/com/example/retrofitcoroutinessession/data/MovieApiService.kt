@@ -17,7 +17,7 @@ interface MovieApiService {
     fun getNowPlayingMovie(
         @Query("page") page: Int? = 1,
         @Query("api_key") apiKey: String = API_KEY,
-    ): List<MoviesNowPlayingResponse>
+    ): MoviesNowPlayingResponse
 
 
 }
